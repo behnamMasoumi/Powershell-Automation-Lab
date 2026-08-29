@@ -1,6 +1,5 @@
 # Get-SystemInfo.ps1
 # Collects general Windows system information for IT troubleshooting.
-# Output is intentionally sanitized for safe use in a public GitHub repository.
 
 Write-Host "========================================"
 Write-Host "       SYSTEM INFORMATION REPORT"

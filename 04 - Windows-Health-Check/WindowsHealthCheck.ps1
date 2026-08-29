@@ -1,6 +1,5 @@
 # WindowsHealthCheck.ps1
-# Read-only Windows health assessment.
-# This script does not modify system settings or files.
+# Performs basic read-only Windows health checks.
 
 Write-Host "========================================"
 Write-Host "        WINDOWS HEALTH CHECK"

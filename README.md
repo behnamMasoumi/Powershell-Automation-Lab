@@ -6,19 +6,16 @@ The projects cover common tasks such as managing users, checking system informat
 
 ## Projects
 
-**01 - Local User Management**
-Creates a local Windows user using information entered into the script.
-
-**02 - System Information**
+**01 - System Information**
 Collects basic information about the Windows system, including hardware, storage, network status, and uptime.
 
-**03 - Service Monitoring**
+**02 - Service Monitoring**
 Checks the status of selected Windows services.
 
-**04 - Windows Health Check**
+**03 - Windows Health Check**
 Runs a few basic checks for disk space, services, firewall status, uptime, and network connectivity.
 
-**05 - Active Directory User Provisioning**
+**04 - Active Directory User Provisioning**
 Uses a CSV file to create multiple users in Active Directory and place them in a specific OU.
 
 ## Technologies

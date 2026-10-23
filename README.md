@@ -1,28 +1,61 @@
-# PowerShell Automation
+# PowerShell Administration Labs
 
-This repository contains some basic PowerShell scripts I built to practice Windows administration and automation.
+PowerShell scripts and labs I built to practice Windows troubleshooting, Active Directory administration, and reporting.
 
-The projects cover common tasks such as managing users, checking system information, monitoring services, and working with Active Directory.
+## Featured Project: AD User Access Report
+
+Retrieves an Active Directory user's account status, password information, OU location, and group memberships.
+
+- Accepts a username as a parameter
+- Returns a structured report using `[PSCustomObject]`
+- Reports directory lookup errors using `try/catch`
+- Supports CSV export through the PowerShell pipeline
+- Includes screenshots of successful queries, nonexistent-user handling, and CSV verification
+
+[View the script and project documentation](03-AD-User-Access-Report)
 
 ## Projects
 
-**01 - System Information**
-Collects basic information about the Windows system, including hardware, storage, network status, and uptime.
+| Project | Description |
+| --- | --- |
+| [AD User Access Report](03-AD-User-Access-Report) | Collects account details and group memberships for help desk investigations. |
+| [System Information Collector](01%20-%20System%20Information%20Collector) | Displays Windows version, CPU, memory, disk usage, active network adapters, and uptime. |
+| [Service Monitoring](02%20-%20Service%20Monitoring) | Checks the status of selected Windows services and reports services that cannot be found. |
+| [Windows Health Check](04%20-%20Windows-Health-Check) | Displays disk space, service status, firewall profile settings, uptime, and an ICMP reachability test. |
+| [Bulk AD User Provisioning](05-%20AD-Bulk-User-Provisioning) | Documents creating AD accounts in a specified OU using CSV input and a PowerShell loop. |
 
-**02 - Service Monitoring**
-Checks the status of selected Windows services.
+## Running the Scripts
 
-**03 - Windows Health Check**
-Runs a few basic checks for disk space, services, firewall status, uptime, and network connectivity.
+Open a project folder and review its script and README before running it.
 
-**04 - Active Directory User Provisioning**
-Uses a CSV file to create multiple users in Active Directory and place them in a specific OU.
+The Windows diagnostic scripts query the local computer. Active Directory projects require the `ActiveDirectory` PowerShell module, connectivity to the domain, and appropriate permissions.
 
-## Technologies
+The user access report returns an object that can be displayed or exported:
 
-* PowerShell
-* CSV
+```powershell
+.\Get-UserAccessReport.ps1 -Username "MasonKol"
+```
 
-## Purpose
+```powershell
+.\Get-UserAccessReport.ps1 -Username "MasonKol" |
+    Export-Csv -Path ".\MasonKol-AccessReport.csv" -NoTypeInformation
+```
 
-The main goal of this repository is to practice PowerShell and learn how it can be used to automate basic IT administration tasks.
+Run these examples from the folder containing `Get-UserAccessReport.ps1`.
+
+## Skills Practiced
+
+- Windows system queries with CIM
+- Service and firewall status checks
+- Active Directory user and group queries
+- Variables, arrays, loops, and parameters
+- Filtering, property selection, and sorting
+- Structured output with `[PSCustomObject]`
+- Error handling with `try/catch`
+- CSV import and export
+
+## Lab Notes
+
+The Active Directory projects were developed in a Windows Server VM using test accounts. System information and health checks provide diagnostic observations rather than a complete assessment of a computer's health.
+
+Each project folder contains its own documentation. Screenshots are included where configuration and test results were captured.
